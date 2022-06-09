@@ -7,21 +7,28 @@
     <link href="./css/style.css" rel="stylesheet" type="text/css">
     <title>Project</title>
 </head>
-<body>
-    <hr class="signLine">
-    <canvas id="canvas"></canvas>    
-    <div class="config"> 
-        <label>Cor: 
-            <select class="selectedColor">
-                <option>Preto</option>
-                <option>Azul</option>
-            </select>
-        </label>
-        <label>Expessura: 
-            <input id="fontWeight" type="number" min="1" max="10">
-        </label>        
-        <button id="clearButton">Refazer</button>
+<body>    
+    <div id="content">
+        <div class="signatureArea">            
+            <hr class="signLine">
+            <p id="text">Text Signature</p>
+            <canvas id="canvas"></canvas>        
+        </div>
+        <div class="config"> 
+            <label>Cor: 
+                <select class="selectedColor">
+                    <option>Preto</option>
+                    <option>Azul</option>
+                </select>
+            </label>
+            <label>Expessura: 
+                <input id="fontWeight" type="number" min="1" max="10">
+            </label>        
+            <button id="clearButton">Refazer</button>
+        </div>        
     </div>
+
+    <p><mark>canvas in maintaince!</mark></p>
     <script src="./js/script.js"></script>
 </body>
 </html>

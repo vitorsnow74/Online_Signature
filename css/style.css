@@ -4,14 +4,34 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: rgb(255, 253, 251);
+}
+
+#content{
+    text-align: center;
+}
+
+/*.signatureArea{
+
+}*/
+
 #canvas{        
     border: 2px dashed rgb(146, 146, 146);
 }
 
-.signLine{
-    color: black;
-    position: relative;
-    top: 130px;
-    width: 450px;
-    margin-left: 45px;
+#text{
+    /*background-color: rgb(154, 24, 24);*/
+    font-size: 64px;    
+    text-align: center;
 }
+
+.signLine{
+    width: 450px;    
+    color: black;            
+    margin: auto;
+}
+
+/*.config{
+    
+}*/
