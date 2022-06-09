@@ -1,0 +1,17 @@
+* {
+    margin: 0;    
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#canvas{        
+    border: 2px dashed rgb(146, 146, 146);
+}
+
+.signLine{
+    color: black;
+    position: relative;
+    top: 130px;
+    width: 450px;
+    margin-left: 45px;
+}
