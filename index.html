@@ -5,26 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/style.css" rel="stylesheet" type="text/css">
-    <title>Project</title>
+    <title>Online Signature</title>
 </head>
 <body>    
     <div id="content">
-        <div class="signatureArea">            
+        <div>            
             <hr class="signLine">            
             <canvas id="canvas"></canvas>        
-            <!--<p id="text">Text Signature</p>-->
+            <p id="text">Text Signature</p>
         </div>
         <div class="config"> 
-            <label>Cor: 
-                <select class="selectedColor">
-                    <option>Preto</option>
-                    <option>Azul</option>
-                </select>
+            <label>Cor: <select class="selectedColor">
+                            <option>Preto</option>
+                            <option>Azul</option>
+                        </select>
             </label>
-            <label>Expessura: 
-                <input id="fontWeight" type="number" min="1" max="10">
-            </label>        
-            <button id="clearButton">Refazer</button>
+            <label>Expessura: <input id="fontWeight" type="number" min="1" max="10"></label>        
+            <button id="clearButton">Limpar Tela</button>
         </div>        
     </div>    
     <script src="./js/script.js"></script>
