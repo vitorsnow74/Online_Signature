@@ -35,6 +35,9 @@ window.addEventListener("load", () => {
         context.clearRect(0, 0, canvas.width, canvas.height);
     };
     
-    /* In creation */
+    /* In creation */    
+    window.querySelector(".signModeCheckbox").onclick = () => {
+        text.style.display = "initial";
+    };
     
 });
