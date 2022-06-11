@@ -14,13 +14,25 @@
             <canvas id="canvas"></canvas>        
             <p id="text">Clique para digitar</p>
         </div>
-        <div class="config"> 
-            <label>Modo de Assinatura: <input type="checkbox" id="signModeCheckbox" name="checkbox" checked> <label class="signModeText">Desenhar</label></label>
-            <br>
+        <div id="warningMessage"><p class="warningText">ATENÇÃO: Modo "DIGITAR" selecionado! <br>Para utilizar o mouse novamente, marque a opção abaixo:</p></div>
+        <div class="config">            
+            <label>Alternar Modo de Assinatura: <input type="checkbox" id="signModeCheckbox" name="checkbox" checked> <label class="signModeText">Desenhar</label></label>
+            <br>            
             <label>Cor: <select class="selectedColor"><option>Preto</option><option>Azul</option></select>
             </label>
             <label>Expessura: <input id="fontWeight" type="number" min="1" max="10"></label>        
             <button id="clearButton">Limpar Tela</button>
+            <br>
+            <label id="fontFamilySelector">Fonte: 
+                <select>
+                    <option></option>
+                    <option></option>
+                    <option></option>
+                    <option></option>
+                    <option></option>
+                    <option></option>
+                </select>
+            </label> 
         </div>        
     </div>    
     <script src="./js/script.js"></script>

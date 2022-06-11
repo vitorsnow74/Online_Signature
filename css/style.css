@@ -70,3 +70,16 @@
 .signModeText{
     color: blue;
 }
+
+#warningMessage{
+    background-color: rgb(255, 255, 154);
+    width: fit-content;
+    position: relative;    
+    margin: auto;    
+    bottom: 40px;
+}
+
+.warningText{
+    padding: 15px;
+    font-size: 18px;
+}
