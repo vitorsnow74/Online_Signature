@@ -6,7 +6,7 @@ window.addEventListener("load", () => {
     canvas.height = 200;
     canvas.width = window.innerWidth;          
     context.lineCap = "round";        
-    text.style.display = "none";
+    
                            
     canvas.addEventListener("mousedown", () => {
         painting = true;
@@ -36,8 +36,19 @@ window.addEventListener("load", () => {
     };
     
     /* In creation */    
-    window.querySelector(".signModeCheckbox").onclick = () => {
-        text.style.display = "initial";
-    };
-    
+    const signModeCheckbox = document.querySelector("#signModeCheckbox");
+    const signModeText = document.querySelector(".signModeText");
+    signModeCheckbox.addEventListener("change", () => {        
+        if(signModeCheckbox.checked) {
+            // Checkbox está selecionado.            
+            text.style.display = "none";              
+            signModeText.innerText = "Desenhar";
+            signModeText.style.color = "blue";            
+        } else {
+            // Checkbox não está selecionado.
+            text.style.display = "initial"; 
+            signModeText.innerText = "Digitar"; 
+            signModeText.style.color = "red";
+        }              
+    });    
 });

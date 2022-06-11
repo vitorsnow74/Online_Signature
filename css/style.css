@@ -33,7 +33,7 @@
     bottom: 150px;
 }
 
-.signModeCheckbox{
+#signModeCheckbox{
     position: relative;
     width: 40px;
     height: 20px;
@@ -45,11 +45,11 @@
     transition: .5s;
 }
 
-.signModeCheckbox:checked{
+#signModeCheckbox:checked{
     background-color: #03a9f4;
 }
 
-.signModeCheckbox::before{
+#signModeCheckbox::before{
     content: '';
     position: absolute;
     width: 20px;
@@ -63,7 +63,7 @@
     transition: .5s;
 }
 
-.signModeCheckbox:checked::before{
+#signModeCheckbox:checked::before{
     left: 20px;
 }
 
