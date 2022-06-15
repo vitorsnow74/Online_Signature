@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link href="./css/style.css" rel="stylesheet" type="text/css">
     <title>Online Signature</title>
 </head>
@@ -12,7 +12,7 @@
         <div>           
             <hr class="signLine">            
             <canvas id="canvas"></canvas>        
-            <p id="text">Clique para digitar</p>
+            <input id="text" placeholder="Clique para digitar"></input>
         </div>
         <div id="warningMessage"><p class="warningText">ATENÇÃO: Modo "DIGITAR" selecionado! <br>Para utilizar o mouse novamente, marque a opção abaixo:</p></div>
         <div class="config">            
@@ -24,13 +24,22 @@
             <button id="clearButton">Limpar Tela</button>
             <br>
             <label id="fontFamilySelector">Fonte: 
-                <select>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
+                <select>         
+                    <option class="fontFamily">Cookie</option>
+                    <option class="fontFamily">Courgette</option>
+                    <option class="fontFamily">Dancing Script</option>
+                    <option class="fontFamily">Euphoria Script</option>
+                    <option class="fontFamily">Great Vibes</option>
+                    <option class="fontFamily">Lobster</option>
+                    <option class="fontFamily">Loved by the King</option>
+                    <option class="fontFamily">Over the Rainbow</option>
+                    <option class="fontFamily">Pacifico</option>
+                    <option class="fontFamily">Parisienne</option>
+                    <option class="fontFamily">Rouge Script</option>
+                    <option class="fontFamily">Sacramento</option>
+                    <option class="fontFamily">Satisfy</option>
+                    <option class="fontFamily">The Girl Next Door</option>
+                    <option class="fontFamily">The Nautigal</option>
                 </select>
             </label> 
         </div>        

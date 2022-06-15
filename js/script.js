@@ -17,6 +17,7 @@ window.addEventListener("load", () => {
        
     //Start the page with drawing mode by default
     selectSignMode();
+    alternateFontsByNameInDDL();
 
     //Rules
     canvas.addEventListener("mousedown", startDrawing);
@@ -69,7 +70,7 @@ window.addEventListener("load", () => {
             warningMessage.style.display = "none"; 
             fontFamilySelector.style.display = "none";           
         } else {     
-            clearSignature();       
+            clearSignature();      
             enableDrawing = false;
             text.style.display = "initial"; 
             signModeText.innerText = "Digitar"; 
@@ -77,5 +78,20 @@ window.addEventListener("load", () => {
             warningMessage.style.display = "block";   
             fontFamilySelector.style.display = "block"; 
         }    
-    }                          
+    }
+    
+    function alternateFontsByNameInDDL(){
+        const selectItemFont = document.querySelectorAll(".fontFamily");
+        const selectItemFontToArray = Array.prototype.slice.call(selectItemFont);        
+        selectItemFontToArray.forEach(element => {              
+            element.style.fontFamily = element.value + ",cursive";
+            console.log(element.value + ",cursive");            
+        });
+    }
+
+        text.addEventListener("input", () => {
+            text.style.color = document.querySelector("#fontWeight").value;
+            text.style.fontWeight = document.querySelector(".selectedColor").value == "Preto" ? "#101010" : "#000080";              
+        });      
+
 });
