@@ -1,99 +1,94 @@
-window.addEventListener("load", () => {    
-    //Page conditions
-    let painting = false;  
-    let enableDrawing = true;         
-        
+window.addEventListener("load", () => {                   
+    let isPainting = false;  
+    let isInDrawingMode = true;      
+    
     //HTML items
     const canvas = document.querySelector("#canvas"); 
-            canvas.height = 200;
-            canvas.width = window.innerWidth;  
+          canvas.height = 200;
+          canvas.width = window.innerWidth;  
     const context = canvas.getContext("2d"); 
-            context.lineCap = "round"; 
+          context.lineCap = "round"; 
     const text = document.querySelector("#text");       
-    const signModeCheckbox = document.querySelector("#signModeCheckbox");
-    const signModeText = document.querySelector(".signModeText");
-    const selectColorDDL = document.querySelector(".selectedColor");
+    const changeSignModeCheckbox = document.querySelector("#signModeCheckbox");
+    const currentSignModeLabel = document.querySelector(".signModeText");    
     const warningMessage = document.querySelector("#warningMessage");
-    const fontFamilySelector = document.querySelector("#fontFamilySelector");                             
-       
-    //Start the page with drawing mode by default
-    selectSignMode();
-    alternateFontsByNameInDDL();
+    const fontFamilySelector = document.querySelector("#fontFamilySelector");   
+    const preSelectAllFonts = document.querySelectorAll(".fontFamily");
+    const allFontsFromSelectorInArray = Array.prototype.slice.call(preSelectAllFonts);                                      
+        
+    changeSignMode();
+    changeStyleFontsInFontSelector();
 
-    //Rules
-    canvas.addEventListener("mousedown", startDrawing);
-    canvas.addEventListener("mousemove", (e) => { keepDrawing(e) });  
-    
-    window.addEventListener("mouseup", stopDrawing);
-    window.addEventListener("resize", resize);
-
-    signModeCheckbox.addEventListener("change", selectSignMode); 
-
-    document.getElementById("clearButton").onclick = () => { clearSignature(); };    
-    
-    document.addEventListener("keydown", () => {
-        text.style.fontFamily = document.querySelector("#currentFontFamily").value;
-        text.style.color = document.querySelector(".selectedColor").value == "Preto" ? "#101010" : "#000080";                      
-        text.style.fontWeight = document.querySelector("#fontWeight").value <= 5 ? "light" : "bold";
-    }); 
-
-    //Functions
-    function startDrawing(){
-        if (!enableDrawing) return;
-        painting = true;
-        context.lineWidth = document.querySelector("#fontWeight").value;
-        context.strokeStyle = document.querySelector(".selectedColor").value == "Preto" ? "#101010" : "#000080";          
-    };        
-
-    function keepDrawing(e){
-        if(!painting) return; 
+    //Event Listeners
+    canvas.addEventListener("mousedown", () => {
+        if (!isInDrawingMode) return;
+        isPainting = true;             
+    });
+    canvas.addEventListener("mousemove", (e) => { 
+        if(!isPainting) return; 
         context.lineTo(e.clientX, e.clientY);
         context.stroke();
         context.beginPath();
         context.moveTo(e.clientX, e.clientY);
-    }
-
-    function stopDrawing(){
-        painting = false;
+    });  
+    
+    window.addEventListener("mouseup", () => {
+        isPainting = false;
         context.beginPath();
-    }
-
-    function resize(){
+    });
+    window.addEventListener("resize", () => {
         canvas.height = 200;
         canvas.width = window.innerWidth;            
         context.lineCap = "round"; 
-    }
+    });    
 
+    document.getElementById("clearButton").onclick = () => { clearSignature(); };    
+
+    document.querySelector("#selectedColor").addEventListener("input", () => {
+        let selectedColor = document.querySelector("#selectedColor").value == "Preto" ? "#101010" : "#000080";
+        context.strokeStyle = selectedColor;   
+        text.style.color = selectedColor;
+    });
+
+    document.querySelector("#fontWeight").addEventListener("change", () => {
+        context.lineWidth = document.querySelector("#fontWeight").value;   
+        text.style.fontWeight = document.querySelector("#fontWeight").value < 6 ? "light" : "bold";
+    });
+
+    document.querySelector("#currentFontFamily").addEventListener("change" , () => {
+        text.style.fontFamily = document.querySelector("#currentFontFamily").value;
+    });    
+
+    changeSignModeCheckbox.addEventListener("change", changeSignMode); 
+
+    //Functions
     function clearSignature(){
         context.clearRect(0, 0, canvas.width, canvas.height);    
         text.value = "";        
     }
 
-    function selectSignMode(){
-        if(signModeCheckbox.checked) { 
-            enableDrawing = true;                     
+    function changeSignMode(){
+        if(changeSignModeCheckbox.checked) { 
+            isInDrawingMode = true;                     
             text.style.display = "none";              
-            signModeText.innerText = "Desenhar";
-            signModeText.style.color = "blue";
+            currentSignModeLabel.innerText = "Desenhar";
+            currentSignModeLabel.style.color = "blue";
             warningMessage.style.display = "none"; 
             fontFamilySelector.style.display = "none";           
         } else {     
             clearSignature();      
-            enableDrawing = false;
+            isInDrawingMode = false;
             text.style.display = "initial"; 
-            signModeText.innerText = "Digitar"; 
-            signModeText.style.color = "red";
+            currentSignModeLabel.innerText = "Digitar"; 
+            currentSignModeLabel.style.color = "red";
             warningMessage.style.display = "block";   
             fontFamilySelector.style.display = "block"; 
         }    
     }
     
-    function alternateFontsByNameInDDL(){
-        const selectItemFont = document.querySelectorAll(".fontFamily");
-        const selectItemFontToArray = Array.prototype.slice.call(selectItemFont);        
-        selectItemFontToArray.forEach(element => {              
-            element.style.fontFamily = element.value + ",cursive";
-            console.log(element.value + ",cursive");            
+    function changeStyleFontsInFontSelector(){        
+        allFontsFromSelectorInArray.forEach(element => {              
+            element.style.fontFamily = element.value + ",cursive";                        
         });
     }                    
 });

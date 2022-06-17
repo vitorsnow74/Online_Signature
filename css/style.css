@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Courgette&family=Dancing+Script&family=Euphoria+Script&family=Great+Vibes&family=Lobster&family=Loved+by+the+King&family=Over+the+Rainbow&family=Pacifico&family=Parisienne&family=Rouge+Script&family=Sacramento&family=Satisfy&family=The+Girl+Next+Door&family=The+Nautigal&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Courgette&family=Dancing+Script&family=Euphoria+Script&family=Great+Vibes&family=Lobster&family=Loved+by+the+King&family=Over+the+Rainbow&family=Pacifico&family=Parisienne&family=Rouge+Script&family=Sacramento&family=Satisfy&family=The+Girl+Next+Door&family=The+Nautigal&display=swap');
 
 * {
     margin: 0;    
@@ -16,11 +15,11 @@
 }
 
 .signLine{
-    width: 450px;    
-    color: black;            
+    color: black;      
     margin: auto;
     position: relative;
     top: 140px;
+    width: 450px;                      
 }
 
 .config{
@@ -29,6 +28,7 @@
 }
 
 #text{
+    background-color: rgba(0, 0, 0, 0);    
     border: none;
     border-width:0px;
     outline:none;
@@ -37,10 +37,6 @@
     text-align: center;
     position: relative;
     bottom: 150px;
-}
-
-#text:focus{
-    border: none;
 }
 
 #signModeCheckbox{

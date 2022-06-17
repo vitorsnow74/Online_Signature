@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link href="./css/style.css" rel="stylesheet" type="text/css">
-    <title>Online Signature</title>
+    <title>Online Signature Generator</title>
 </head>
 <body>    
     <div id="content">
@@ -14,13 +14,24 @@
             <canvas id="canvas"></canvas>        
             <input id="text" placeholder="Clique para digitar">
         </div>
-        <div id="warningMessage"><p class="warningText">ATENÇÃO: Modo "DIGITAR" selecionado! <br>Para utilizar o mouse novamente, marque a opção abaixo:</p></div>
+        <div id="warningMessage">
+            <p class="warningText">ATENÇÃO: Modo "DIGITAR" selecionado! <br>Para utilizar o mouse novamente, marque a opção abaixo:</p>
+        </div>
         <div class="config">            
-            <label>Alternar Modo de Assinatura: <input type="checkbox" id="signModeCheckbox" name="checkbox" checked> <label class="signModeText">Desenhar</label></label>
+            <label>Alternar Modo de Assinatura: </label>
+                <input type="checkbox" id="signModeCheckbox" name="checkbox" checked> 
+                <label class="signModeText">Desenhar</label>
+            
             <br>            
-            <label>Cor: <select class="selectedColor"><option>Preto</option><option>Azul</option></select>
-            </label>
-            <label>Expessura: <input id="fontWeight" type="number" min="1" max="10"></label>        
+            <label>Cor: </label>
+                <select id="selectedColor">
+                    <option>Preto</option>
+                    <option>Azul</option>
+                </select>
+            
+            <label>Expessura: </label>  
+                <input id="fontWeight" type="number" min="1" max="10">
+                  
             <button id="clearButton">Limpar Tela</button>
             <br>
             <label id="fontFamilySelector">Fonte: 
