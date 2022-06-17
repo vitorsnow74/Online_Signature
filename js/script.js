@@ -1,8 +1,8 @@
 window.addEventListener("load", () => {    
     //Page conditions
     let painting = false;  
-    let enableDrawing = true; 
-    
+    let enableDrawing = true;         
+        
     //HTML items
     const canvas = document.querySelector("#canvas"); 
             canvas.height = 200;
@@ -12,6 +12,7 @@ window.addEventListener("load", () => {
     const text = document.querySelector("#text");       
     const signModeCheckbox = document.querySelector("#signModeCheckbox");
     const signModeText = document.querySelector(".signModeText");
+    const selectColorDDL = document.querySelector(".selectedColor");
     const warningMessage = document.querySelector("#warningMessage");
     const fontFamilySelector = document.querySelector("#fontFamilySelector");                             
        
@@ -28,7 +29,13 @@ window.addEventListener("load", () => {
 
     signModeCheckbox.addEventListener("change", selectSignMode); 
 
-    document.getElementById("clearButton").onclick = () => { clearSignature(); };            
+    document.getElementById("clearButton").onclick = () => { clearSignature(); };    
+    
+    document.addEventListener("keydown", () => {
+        text.style.fontFamily = document.querySelector("#currentFontFamily").value;
+        text.style.color = document.querySelector(".selectedColor").value == "Preto" ? "#101010" : "#000080";                      
+        text.style.fontWeight = document.querySelector("#fontWeight").value <= 5 ? "light" : "bold";
+    }); 
 
     //Functions
     function startDrawing(){
@@ -58,7 +65,8 @@ window.addEventListener("load", () => {
     }
 
     function clearSignature(){
-        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.clearRect(0, 0, canvas.width, canvas.height);    
+        text.value = "";        
     }
 
     function selectSignMode(){
@@ -87,11 +95,5 @@ window.addEventListener("load", () => {
             element.style.fontFamily = element.value + ",cursive";
             console.log(element.value + ",cursive");            
         });
-    }
-
-        text.addEventListener("input", () => {
-            text.style.color = document.querySelector("#fontWeight").value;
-            text.style.fontWeight = document.querySelector(".selectedColor").value == "Preto" ? "#101010" : "#000080";              
-        });      
-
+    }                    
 });
